@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  backend:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+    environment:
+      - DATABASE_URL=postgresql://makena:kitambulisho123@postgres:5432/tododb
+      - JWT_SECRET=your_secret_key
+      - PORT=5000
+
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=makena
+      - POSTGRES_PASSWORD=kitambulisho123
+      - POSTGRES_DB=tododb
+    ports:
+      - "5432:5432"
