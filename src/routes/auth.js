@@ -6,7 +6,6 @@ const prisma = require("../config/db");
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET;
 
-// User Signup
 router.post("/signup", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -18,11 +17,10 @@ router.post("/signup", async (req, res) => {
 
     res.json({ message: "User created successfully" });
   } catch (error) {
-    res.status(500).json({ error: "Oh no! Signup failed" });
+    res.status(500).json({ error: "User signup error" });
   }
 });
 
-// User Login
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -38,7 +36,7 @@ router.post("/login", async (req, res) => {
 
     res.json({ token });
   } catch (error) {
-    res.status(500).json({ error: "Oh no! Login failed" });
+    res.status(500).json({ error: "Login failed" });
   }
 });
 

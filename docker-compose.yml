@@ -3,20 +3,19 @@ services:
   backend:
     build: .
     ports:
-      - "5000:5000"
+      - "5001:5001"
     depends_on:
       - postgres
     environment:
-      - DATABASE_URL=postgresql://makena:kitambulisho123@postgres:5432/tododb
-      - JWT_SECRET=your_secret_key
+      - DATABASE_URL=postgresql://postgres:gettingstarted@localhost:5432/tododb
       - PORT=5000
 
   postgres:
     image: postgres:latest
     restart: always
     environment:
-      - POSTGRES_USER=makena
-      - POSTGRES_PASSWORD=kitambulisho123
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=gettingstarted
       - POSTGRES_DB=tododb
     ports:
       - "5432:5432"
