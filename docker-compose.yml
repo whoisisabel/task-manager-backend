@@ -7,7 +7,8 @@ services:
     depends_on:
       - postgres
     environment:
-      - DATABASE_URL=postgresql://postgres:gettingstarted@localhost:5432/tododb
+      # - DATABASE_URL=postgresql://postgres:gettingstarted@localhost:5432/tododb
+      -DATABASE_URL=postgresql://todo_db_5z68_user:5Ib7ULP3seiKsCguiTyrtLmv7AdPyfoB@dpg-cugt1jbtq21c73f3kg00-a.oregon-postgres.render.com/todo_db_5z68
       - PORT=5000
 
   postgres:
