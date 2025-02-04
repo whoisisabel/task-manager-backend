@@ -2,14 +2,14 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 
-const authRoutes = require("./routes/auth"); 
+const authRoutes = require("./routes/auth");
 const taskRoutes = require("./routes/tasks");
 
 const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://task-manager-im.netlify.app" || "http://localhost:3000",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
@@ -21,7 +21,7 @@ app.use("/tasks", taskRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack); // Log the error stack trace for debugging
-  res.status(500).send('Something went wrong!');
+  res.status(500).send("Something went wrong!");
 });
 
 const PORT = process.env.PORT || 5001;
